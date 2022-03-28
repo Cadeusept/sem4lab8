@@ -21,7 +21,7 @@ HunterGate(
 )
 
 # TODO: rename project and delete this comment
-project(template VERSION 0.1.0)
+project(lab_08_http_client VERSION 0.1.0)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
@@ -45,7 +45,7 @@ add_library(${PROJECT_NAME} STATIC
         ${CMAKE_CURRENT_SOURCE_DIR}/sources/client.cpp
 )
 
-add_executable(demo
+add_executable(http-client
   ${CMAKE_CURRENT_SOURCE_DIR}/demo/main.cpp
 )
 
@@ -60,7 +60,7 @@ target_link_libraries(${PROJECT_NAME}
         nlohmann_json::nlohmann_json
         )
 
-target_link_libraries(demo ${PROJECT_NAME})
+target_link_libraries(http-client ${PROJECT_NAME})
 
 if(BUILD_TESTS)
   add_executable(tests
@@ -95,7 +95,7 @@ endif()
 
 include(CPackConfig.cmake)
 
-install(TARGETS ${PROJECT_NAME} demo
+install(TARGETS ${PROJECT_NAME} http-client
   EXPORT "${PROJECT_NAME}-targets"
   RUNTIME DESTINATION bin
   ARCHIVE DESTINATION lib
