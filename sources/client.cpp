@@ -29,9 +29,9 @@ void SuggesterClient::parse_suggest(const std::string &response_json,
   }
 
   if (res[suggestions_str].empty()) {
-    out << "Maybe you had a typo in this word: " << std::endl;
-  } else {
     out << "No suggestions for such input" << std::endl;
+  } else {
+    out << "Maybe you had a typo in this word: " << std::endl;
   }
 
   size_t count = 1;
