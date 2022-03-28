@@ -25,7 +25,7 @@ void SuggesterClient::parse_suggest(const std::string &response_json,
   try {
     res = nlohmann::json::parse(response_json);
   } catch (nlohmann::json::parse_error &err) {
-    throw std::runtime_error("Not a JSON responce");
+    throw std::runtime_error("Not a JSON responce\n");
   }
 
   if (res[suggestions_str].empty()) {
