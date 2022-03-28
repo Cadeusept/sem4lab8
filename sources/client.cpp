@@ -28,11 +28,10 @@ void SuggesterClient::parse_suggest(const std::string &response_json,
     throw std::runtime_error("Not a JSON responce\n");
   }
 
-  if (res[suggestions_str].empty()) {
+  if (res[suggestions_str].empty())
     out << "No suggestions for such input" << std::endl;
-  } else {
+  else
     out << "Maybe you had a typo in this word: " << std::endl;
-  }
 
   size_t count = 1;
   for (const auto& elem : res[suggestions_str]) {
